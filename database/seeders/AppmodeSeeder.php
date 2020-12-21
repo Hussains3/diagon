@@ -1,0 +1,24 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Appmode;
+
+class AppmodeSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $mode = new Appmode();
+        $mode->name = 's-mode';
+        $mode->threshold = 25000;
+        $mode->currentAmmount = 0;
+        $mode->status = true;
+        $mode->save();
+    }
+}
