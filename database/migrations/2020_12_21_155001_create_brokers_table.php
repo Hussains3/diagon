@@ -15,6 +15,13 @@ class CreateBrokersTable extends Migration
     {
         Schema::create('brokers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('degree')->nullable();
+            $table->string('designation')->nullable();
+            $table->string('institution')->nullable();
+            $table->string('phone');
+            $table->integer('commission')->default(30);
+            $table->integer('balance')->default(0);
             $table->timestamps();
         });
     }

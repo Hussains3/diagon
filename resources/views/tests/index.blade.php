@@ -92,7 +92,7 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 {!! Form::label('name', 'Test Name') !!}
-                                {!! Form::text('name', null, ['class'=>'form-control','id'=>'name','placeholder'=>'category name']) !!}
+                                {!! Form::text('name', null, ['class'=>'form-control','id'=>'name','placeholder'=>'test name']) !!}
                             </div>
                             <div class="form-group col-md-6">
                                 {!! Form::label('category', 'Category Name') !!}

@@ -1,6 +1,6 @@
 @extends('layouts.sb')
 @section('title')
-Users
+Patient
 @endsection
 
 
@@ -14,8 +14,8 @@ Users
                 <div class="page-header-title">
                     <i class="ik ik-inbox bg-blue"></i>
                     <div class="d-inline">
-                        <h5>Users</h5>
-                        <span>All user who can use this application.</span>
+                        <h5>Patient</h5>
+                        <span>All patient who can use this application.</span>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@ Users
                 <nav class="breadcrumb-container" aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="{{route('users.create')}}" class="btn btn-success text-light"><i class="ik ik-plus"></i> Add</a>
+                            <a href="{{route('patients.create')}}" class="btn btn-success text-light"><i class="ik ik-plus"></i> Add</a>
                         </li>
                     </ol>
                 </nav>
@@ -43,36 +43,28 @@ Users
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Phone Number</th>
-                                <th>Roles</th>
-                                <th>Balance</th>
+                                <th>Due</th>
                                 <th class="nosort">&nbsp;</th>
                                 <th class="nosort">&nbsp;</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($patients as $patient)
                             <tr>
-                                <td>{{$user->id}}</td>
-                                <td class="text-capitalize">{{$user->name}}</td>
-                                <td class="text-capitalize">{{$user->phone}}</td>
-                                <td class="text-capitalize">
-                                    @foreach ($user->roles as $role)
-                                        <span class="badge badge-info mr-1">
-                                            {{ $role->name }}
-                                        </span>
-                                    @endforeach
-                                </td>
-                                <td class="text-capitalize">{{$user->balance}}</td>
+                                <td>{{$patient->id}}</td>
+                                <td class="text-capitalize">{{$patient->name}}</td>
+                                <td class="text-capitalize">{{$patient->phone}}</td>
+                                <td class="text-capitalize">{{$patient->due}}</td>
                                 <td>
                                     <div class="table-actions">
-                                        <a href="{{route('users.show',$user->id)}}"><i class="ik ik-eye"></i></a>
-                                        <a href="{{route('users.show',$user->id)}}"><i class="ik ik-edit-2"></i></a>
-                                        <a class="" href="{{ route('users.destroy', $user->id) }}"
-                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $user->id }}').submit();">
+                                        <a href="{{route('patients.show',$patient->id)}}"><i class="ik ik-eye"></i></a>
+                                        <a href="{{route('patients.show',$patient->id)}}"><i class="ik ik-edit-2"></i></a>
+                                        <a class="" href="{{ route('patients.destroy', $patient->id) }}"
+                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $patient->id }}').submit();">
                                         <i class="ik ik-trash-2"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $patient->id }}" action="{{ route('patients.destroy', $patient->id) }}" method="POST" style="display: none;">
                                             @method('DELETE')
                                             @csrf
                                         </form>

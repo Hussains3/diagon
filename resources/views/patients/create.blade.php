@@ -1,7 +1,7 @@
 @extends('layouts.sb')
 
 @section('title')
-Create User - Admin Panel
+Create Patient
 @endsection
 
 
@@ -15,7 +15,7 @@ Create User - Admin Panel
                 <div class="page-header-title">
                     <i class="ik ik-inbox bg-blue"></i>
                     <div class="d-inline">
-                        <h5>User Create</h5>
+                        <h5>Patient Create</h5>
                         <span>Assigning Permission to New User.</span>
                     </div>
                 </div>
@@ -27,9 +27,9 @@ Create User - Admin Panel
                             <a href="/"><i class="ik ik-home"></i></a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{route('users.index')}}">User</a>
+                            <a href="{{route('patients.index')}}">Patient</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">User Create</li>
+                        <li class="breadcrumb-item active" aria-current="page">Patient Create</li>
                     </ol>
                 </nav>
             </div>
@@ -42,16 +42,16 @@ Create User - Admin Panel
             <div class="card">
                 <div class="card-body">
                     @include('layouts.messages')
-                    {!! Form::open(['route' => 'users.store', 'method' => 'post','class'=>'forms-sample','enctype'=>'multipart/form-data']) !!}
+                    {!! Form::open(['route' => 'patients.store', 'method' => 'post','class'=>'forms-sample','enctype'=>'multipart/form-data']) !!}
                         {{csrf_field()}}
                         <div class="row">
-                            <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('name', 'User Name') !!}
-                                {!! Form::text('name', null, ['class'=>'form-control','id'=>'exampleInputUsername1','placeholder'=>'Username']) !!}
+                            <div class="form-group col-md-8 col-sm-12">
+                                {!! Form::label('name', 'Patient Name') !!}
+                                {!! Form::text('name', null, ['class'=>'form-control','id'=>'exampleInputUsername1','placeholder'=>'name','required']) !!}
                             </div>
-                            <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('email', 'Email Address') !!}
-                                {!! Form::email('email', null, ['class'=>'form-control','id'=>'email','placeholder'=>'abc@mail.com']) !!}
+                            <div class="form-group col-md-4 col-sm-12">
+                                {!! Form::label('age', 'Age') !!}
+                                {!! Form::number('age', null, ['class'=>'form-control','id'=>'age','placeholder'=>'18']) !!}
                             </div>
                         </div>
                         <div class="row">
@@ -66,50 +66,14 @@ Create User - Admin Panel
                                 {!! Form::text('phone', null, ['class'=>'form-control','id'=>'phone','placeholder'=>'012345678910']) !!}
                             </div>
                             <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('dob', 'Date Of Birth') !!}
-                                {!! Form::date('dob', null, ['class'=>'form-control','id'=>'dob']) !!}
+                                {!! Form::label('email', 'Email Address') !!}
+                                {!! Form::email('email', null, ['class'=>'form-control','id'=>'email']) !!}
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('nid', 'NID Number') !!}
-                                {!! Form::text('nid', null, ['class'=>'form-control','id'=>'nid','placeholder'=>'19921565498465']) !!}
-                            </div>
-                            <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('balance', 'balance') !!}
-                                {!! Form::number('balance', 0, ['class'=>'form-control','id'=>'balance']) !!}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('profile_picture', 'Photo') !!}
-                                {!! Form::file('profile_picture', ['class'=>'form-control','id'=>'profile_picture']) !!}
-                            </div>
-                            <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('signeture', 'Signeture') !!}
-                                {!! Form::file('signeture', ['class'=>'form-control','id'=>'signeture']) !!}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('roles', 'Roles') !!}
-                                <select name="roles" id="roles" class="form-control select2" multiple="multiple">
-                                    @foreach ($roles as $role)
-                                        <option value="{{$role->id}}">{{$role->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6 col-sm-12">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('password', 'Password') !!}
-                                {!! Form::password('password', ['class'=>'form-control','id'=>'password','placeholder'=>'Password']) !!}
-                            </div>
-                            <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('password_confirmation', 'Confirm Password') !!}
-                                {!! Form::password('password_confirmation', ['class'=>'form-control','id'=>'password_confirmation','placeholder'=>'Password']) !!}
+                                {!! Form::label('due', 'Due') !!}
+                                {!! Form::number('due', 0, ['class'=>'form-control','id'=>'due','placeholder'=>'0']) !!}
                             </div>
                         </div>
                         {!! Form::submit('Create', ['class'=>'btn btn-primary mr-2']) !!}

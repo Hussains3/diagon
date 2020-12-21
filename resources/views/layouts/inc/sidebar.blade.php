@@ -18,11 +18,8 @@
                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Sell</span></a>
                     <div class="submenu-content">
                         <a href="{{route('sales.create')}}" class="menu-item">New Sell</a>
-                        <a href="{{route('sales.index')}}" class="menu-item">Sell List</a>
+                        <a href="{{route('sales.index')}}" class="menu-item">Invoice</a>
                     </div>
-                </div>
-                <div class="nav-item has-sub">
-                    <a href="{{route('invoices.index')}}"><i class="ik ik-layers"></i><span>Invoice</span></a>
                 </div>
                 <div class="nav-lavel">Examination</div>
                 <div class="nav-item has-sub">
@@ -39,15 +36,21 @@
                     <div class="submenu-content">
                         <a href="{{route('doctors.index')}}" class="menu-item">Our Doctor's List</a>
                         {{-- <a href="" class="menu-item">Doctors Appoinment</a> --}}
-                        <a href="" class="menu-item">Add Doctor</a>
+                        <a href="{{route('doctors.create')}}" class="menu-item">Add Doctor</a>
                     </div>
                 </div>
                 <div class="nav-item has-sub">
                     <a href="#"><i class="ik ik-gitlab"></i><span>Paitient</span></a>
                     <div class="submenu-content">
                         <a href="{{route('patients.index')}}" class="menu-item">List</a>
-                        <a href="pages/ui/notifications.html" class="menu-item">Create</a>
-                        <a href="pages/ui/carousel.html" class="menu-item">Show</a>
+                        <a href="{{route('patients.create')}}" class="menu-item">Create</a>
+                    </div>
+                </div>
+                <div class="nav-item has-sub">
+                    <a href="#"><i class="ik ik-gitlab"></i><span>Broker</span></a>
+                    <div class="submenu-content">
+                        {{-- <a href="{{route('brokers.index')}}" class="menu-item">Broker List</a>
+                        <a href="{{route('brokers.creat')}}" class="menu-item">Broker Create</a> --}}
                     </div>
                 </div>
                 <div class="nav-item has-sub">

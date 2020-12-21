@@ -14,7 +14,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return view('patients.index');
+        $patients = Patient::all();
+        return view('patients.index',compact('patients'));
         
     }
 
@@ -25,7 +26,8 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        $patients = Patient::all();
+        return view('patients.create',compact('patients'));
     }
 
     /**
@@ -36,7 +38,21 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cus = new Patient();
+        $cus->name = $request->name;
+        $cus->age = $request->age;
+        $cus->address = $request->address;
+        $cus->phone = $request->phone;
+        $cus->email = $request->email;
+        $cus->due = $request->due;
+        $cus->save();
+
+
+        
+        session()->flash('success', 'User has been updated !!');
+        return back();
+
+
     }
 
     /**
