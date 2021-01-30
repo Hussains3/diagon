@@ -16,8 +16,9 @@ class CreateTestsTable extends Migration
         Schema::create('tests', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('price');
-            $table->integer('min_price');
+            $table->decimal('price', 25, 2)->default(0.00);
+            $table->decimal('min_price', 25, 2)->default(0.00);
+            $table->decimal('cost', 25, 2)->default(0.00);
             $table->timestamps();
             $table->unsignedBigInteger('category');
             $table->foreign('category')->references('id')

@@ -50,8 +50,7 @@ class DoctorController extends Controller
         $doctor =new Doctor();
         $doctor->name = $request->name;
         $doctor->degree = $request->degree;
-        $doctor->designation = $profile_image_url;
-        $doctor->institution  = $signeture_url;
+        // $doctor->institution  = $signeture_url;
         $doctor->commission = $request->dob;
         $doctor->phone = $request->phone;
         $doctor->balance = $request->balance;
@@ -59,7 +58,7 @@ class DoctorController extends Controller
 
         session()->flash('success', 'Doctor has been created !!');
         return redirect()->route('doctors.index');
-    
+
     }
 
     /**

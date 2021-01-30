@@ -14,11 +14,18 @@ class AppmodeSeeder extends Seeder
      */
     public function run()
     {
-        $mode = new Appmode();
-        $mode->name = 's-mode';
-        $mode->threshold = 25000;
-        $mode->currentAmmount = 0;
-        $mode->status = true;
-        $mode->save();
+        $i = 0;
+        $modename =['s-mode','d-mode','n-mode'];
+
+        for ($i=0; $i < count($modename); $i++) {
+
+            $mode = new Appmode();
+            $mode->name = $modename[$i];
+            $mode->threshold = 25000;
+            $mode->currentAmmount = 0;
+            $mode->status = true;
+            $mode->save();
+        }
+
     }
 }

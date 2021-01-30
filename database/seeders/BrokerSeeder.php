@@ -14,14 +14,6 @@ class BrokerSeeder extends Seeder
      */
     public function run()
     {
-        $broker = new Broker();
-        $broker->name= 'Akash';
-        $broker->degree= 'N/A';
-        $broker->designation= 'N/A';
-        $broker->institution= 'N/A';
-        $broker->phone= '01478523695';           
-        $broker->commission= 10;
-        $broker->balance= 0;
-        $broker->save();
+        //
     }
 }

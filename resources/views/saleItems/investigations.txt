@@ -1,0 +1,136 @@
+❑ CBC, ESR
+❑ Blood Film
+❑ TC, DC, Hb% ESR
+❑ MP
+❑ CE Count
+❑ LE Cell   Count
+❑ BT, CT
+❑ Ptothombin Time
+❑ APTT
+❑ Reticulocyte Count
+❑ HCT /PCV
+❑ Sugar Fasting U Random
+❑ 2hrs. ABF LI GTT 0 After 75 gm. Glucose
+❑ S. Bilirubin (Total/Direct/Indirect)
+❑ SGPT
+❑ SGOT
+❑ Alk. Phosphatase
+❑ S. Amylase 0 Add Phosphatase 0 S. Calcium
+❑ Prothornbin Time & INR
+❑ Prostatic Acid Phosphatase
+❑ S. Cholesterol
+❑ LDL Cholesterol
+❑ HDL Cholesterol
+❑ Triglyceride
+❑ Lipid Profile
+❑ S. Phosphate 0 Urea/BUN 0 S. Creatinine O S. Electrolytes
+❑ S. Uric Acid
+❑ S. Total Protein 0 Albumin
+❑ Globulin
+❑ AG Ratio
+❑ S. Iron 0 Vitamin D3
+❑ Feritin
+❑ TIBC
+❑ Folic Acid
+❑ Vitamin B-12
+❑ Urinary Amylase
+❑ Vitamin B O Urinary Electrolytes0 Magnesium 0 Urine for micro Albumin
+❑ CRP Titre
+❑ GFR
+'ULTRASOUND IMAGING'
+❑ Whole Abdomen & Pelvic Organs 0-ray of
+❑ HBS / Upper Abdomen • Ba-Meal of Stomach and duodenum
+❑ Lower Abdomen / Uterus & Adnexae
+❑ Ba-Swallow of Oesophagus
+❑ Pregnancy Profile CI Ba-enerna double contrast O KUB / Genito-Urinary Tract
+❑ Ba-Meal follow through
+❑ KUB with Prostate & Residual Volume
+❑ IVU with Post mitt. Flim
+❑ Thyroid
+❑ Scrotum / Testes CI Retrograde Cystourethrogram
+❑ Breasts • Sialogram
+❑ Soft Tissue Fistulograrn.
+❑ TVS Sinogram
+❑ Transrectal Ultrasonogram OPG / Dental / X-ray
+❑ Blood for C/S Ll Pregnancy Test LI Urobilinogen O Throat Swab
+❑ Creatinine Clearance Rate
+❑ R/E
+❑ C/S
+❑ KLB
+❑ On Stain a 24 hrs. Total Protein/ Calcium / Phosphate
+❑ Sputum LI Urinary VMA
+❑ Bence-Jones Protein
+❑ R/E
+❑ C/S
+❑ AFB
+❑ Gm Stain
+❑ Vaginal Swab
+❑ R/E
+❑ C/S
+❑ Gm Stain
+❑ Wound Swab for C/S
+❑ Umbilical Swab for C/S
+❑ Conjunctival Swab For C/S
+❑ Aural Swab for C/S
+❑ Prostatic /Urethral Smear
+❑ R/E
+❑ GC
+❑ G/S
+❑ Gm. Stain
+❑ PSU R/E u C/S
+❑ Gm. Stain
+❑ A. HBs
+❑ HBe Ag
+❑ A. HCV 0 A. HAV-IgM
+❑ A. HBe
+❑ A. HBc IgG
+❑ A. HBc IgM
+❑ A. HBV-IgM
+❑ A. HBc
+❑ T4
+❑ FT 3 0 FT 4
+❑ Prolactin
+❑ TSH
+❑ Estradiol 0 LH 0 Progesterone 0 BR
+❑ Testosterone 0 Cortisol 0 Growth Hormone 0 A.-Thyroid Ab
+❑ ACTH O PTH
+❑ Plain X-Ray Abdomen/C.P.D. O Skull B/V • P.N.S. (0.M View)
+❑ Cervical Spine B/V
+❑ Thoracic / Dorsal Spine B/V
+❑ Lumbo Dorsal Spine B/V
+❑ Lumbo-Sacral Spine B/V
+❑ ECHOCARDIOGRAM-2D & M-MODE
+❑ COLOUR DOPPLER ECHO U 24 Hr. Ambulatory BP.
+❑ Widal Test
+❑ ASO Tire 0 Febrile Antigen
+❑ R.A. Test
+❑ VDRL (Olty/Onty)
+❑ IgA O IgM
+❑ IgG LI IgE
+❑ Anti Ds DNA
+❑ ANA
+❑ TPHA 0 Anti DNA LI ANF O ICT Filaria 0 Rh. Antibody Titre
+❑ ICT Kala-Azar
+❑ ICT Tuberculosis 0 Antisperm antibody
+❑ ICT Malaria
+❑ Dengue NSI
+❑ Dengue ICT 0 Dengue
+❑ IgG
+❑ IgM O CFT Filaria
+❑ H-Pylori Antibody
+❑ Chikungunia ICT
+❑ Blood Group & Rh factor
+❑ Coomb's Test (Direct/Indirect)
+❑ Histopathology
+❑ FNAC
+❑ Pap's Smear for Cytology
+❑ Sputum for Malignant Cell
+❑ Urine for Malignant Cell .......Discharge/Fluid for Malignant Cell
+❑ Hepatitis B Vaccine
+❑ Hepatitis A Vaccine
+❑ Semen Analysis
+❑ HBALC
+❑ HIV (1 + 2)
+❑ SKIN/NAIL SCRAPING
+❑ Fungus
+❑ PSA (Quantitative)

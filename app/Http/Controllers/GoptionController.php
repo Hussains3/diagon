@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appmode;
 use App\Models\Goption;
 use Illuminate\Http\Request;
 
@@ -14,8 +15,10 @@ class GoptionController extends Controller
      */
     public function index()
     {
-        //
-        return view('settings.index');
+        $goption = Goption::first();
+        $appmodes = Appmode::all()->pluck('name','id');
+        // return $goptions;
+        return view('settings.index',compact('goption','appmodes'));
     }
 
     /**
@@ -36,7 +39,7 @@ class GoptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -70,7 +73,18 @@ class GoptionController extends Controller
      */
     public function update(Request $request, Goption $goption)
     {
-        //
+        // return $goption;
+        // Validation Data
+        $this->validate($request, [
+            'appMode' => 'required'
+        ]);
+
+        // return $goptions->id;
+        $goption->appMode = $request->appMode;
+        $goption->save();
+
+        session()->flash('success', 'App Modes has been Changed !!');
+        return redirect()->route('goptions.index');
     }
 
     /**

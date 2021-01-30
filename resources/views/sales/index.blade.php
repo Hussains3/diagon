@@ -7,9 +7,7 @@
             <h2>All Sales</h2>
         </div>
         <div class="col text-right">
-
-            <a href="{{route('sales.create')}}" class="btn btn-primary">
-                <i class="mdi mdi-account-edit"></i> New Sales</a>
+            <a href="{{route('sales.create')}}" class="btn btn-primary"><i class="ik ik-plus"></i></a>
         </div>
     </div>
 
@@ -18,12 +16,14 @@
         <table id="sales_table" class="table is-narrow">
             <thead>
             <tr>
-                <th>No</th>
-                <th>Date</th>
+                <th>SL</th>
                 <th>Invoice</th>
-                <th>Customer Name</th>
-                <th>Net Total</th>
-                <th>Paid</th>
+                <th>Patient</th>
+                <th>Date</th>
+                <th>Doctor</th>
+                <th>Broker</th>
+                <th>Status</th>
+                <th>Total</th>
                 <th>Due</th>
                 <th>Action</th>
             </tr>
@@ -32,24 +32,28 @@
             <tbody>
             @foreach ($sales as $sale)
                 <tr>
-                    <th> # </th>
-                    <td>{{$sale->date}}</td>
+                    <td>{{++$i}}</td>
+                    {{-- DNS1D::getBarcodeSVG($sale->invoice, 'C39') --}}
                     <td>{{$sale->invoice}}</td>
-                    <td>{{$sale->customer->name}}</td>
+                    <td>{{$sale->patient->name}}</td>
+                    <td>{{$sale->created_at}}</td>
+                    <td>{{$sale->doctor->name}}</td>
+                    <td>
+                        @if ($sale->broker)
+                        {{$sale->broker->name}}
+                        @endif
+                    </td>
+                    <td>{{$sale->status}}</td>
                     <td>{{$sale->netTotal}}</td>
-                    <td>{{$sale->paid}}</td>
-                    <td>{{$sale->due }}</td>
+                    <td>{{$sale->due}}</td>
                     <td class="has-text-right text-center">
-
+                        <a class="text-primary" href="{{route('sales.edit', $sale->id)}}"><i class="ik ik-edit-2"></i></a>
+                        <a class="text-success mx-1" href="{{route('sales.show', $sale->id)}}" target="_blank"><i class="ik ik-list"></i></a>
+                        <a class="text-danger" href="{{route('sales.show', $sale->id)}}" target="_blank"><i class="ik ik-trash"></i></a>
                         <form id="deleteForm{{$sale->id}}" action="{{ route('sales.destroy',$sale->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                         </form>
-{{--                        <a class="btn btn-info" href="{{route('sales.edit', $sale->id)}}"> Edit</a>--}}
-                        <a class="btn btn-success" href="{{route('sales.show', $sale->id)}}" target="_blank">Invoice </a>
-
-{{--                        <button class="delete btn btn-danger" onclick="deleteform({{$sale->id}})">Delete</button>--}}
-
                     </td>
                 </tr>
             @endforeach

@@ -20,7 +20,9 @@ class CreatePatientsTable extends Migration
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
-            $table->integer('due')->nullable();
+            $table->decimal('pay', 25, 2)->default(0.00);
+            $table->decimal('due', 25, 2)->default(0.00);
+            $table->decimal('buy', 25, 2)->default(0.00);
             $table->integer('report')->nullable();
             $table->timestamps();
         });

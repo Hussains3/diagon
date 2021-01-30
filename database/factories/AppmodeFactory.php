@@ -22,7 +22,10 @@ class AppmodeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => ['s-mode','d-mode','n-mode'][random_int(0, 2)],
+            'threshold' => $this->faker->numberBetween(25000,50000),
+            'currentAmmount' => $this->faker->numberBetween(0,10000),
+            'status' => true
         ];
     }
 }

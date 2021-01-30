@@ -10,23 +10,14 @@ Patient
 <div class="container-fluid">
     <div class="page-header">
         <div class="row align-items-end">
-            <div class="col-lg-8">
+            <div class="col">
                 <div class="page-header-title">
-                    <i class="ik ik-inbox bg-blue"></i>
+                    <a href="{{route('patients.create')}}"><i class="ik ik-plus bg-blue"></i></a>
                     <div class="d-inline">
                         <h5>Patient</h5>
                         <span>All patient who can use this application.</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <nav class="breadcrumb-container" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="{{route('patients.create')}}" class="btn btn-success text-light"><i class="ik ik-plus"></i> Add</a>
-                        </li>
-                    </ol>
-                </nav>
             </div>
         </div>
     </div>

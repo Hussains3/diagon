@@ -17,10 +17,20 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(RolePermissionSeeder::class);
         $this->call(AppmodeSeeder::class);
-        $this->call(DoctorSeeder::class);
-        $this->call(TestcategorySeeder::class);
-        $this->call(TestSeeder::class);
-        $this->call(PatientSeeder::class);
-        $this->call(BrokerSeeder::class);
+
+        // \App\Models\Appmode::factory(3)->create();
+        \App\Models\Doctor::factory(100)->create();
+        \App\Models\Unit::factory(50)->create();
+        \App\Models\Broker::factory(100)->create();
+        \App\Models\Patient::factory(100)->create();
+        \App\Models\Expence::factory(100)->create();
+        \App\Models\Testcategory::factory(100)->create();
+        \App\Models\Test::factory(50)->create();
+        \App\Models\Parameter::factory(50)->create();
+        \App\Models\Sale::factory(50)->create();
+        \App\Models\SaleItem::factory(100)->create();
+        \App\Models\Goption::factory(1)->create();
+        \App\Models\Pararesult::factory(50)->create();
+
     }
 }

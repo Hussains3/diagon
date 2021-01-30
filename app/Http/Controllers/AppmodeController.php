@@ -14,7 +14,9 @@ class AppmodeController extends Controller
      */
     public function index()
     {
-        //
+        $appmodes = Appmode::all();
+        // return $appmodes;
+        return view('appmodes.index',compact('appmodes'));
     }
 
     /**
@@ -38,7 +40,24 @@ class AppmodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request;
+        // Validation Data
+        $request->validate([
+            'name' => 'required',
+            'rate' => 'required',
+        ], [
+            'name.requried' => 'Please give a name'
+        ]);
+        //saving on database
+        $appmodes =new Appmode();
+        $appmodes->name = $request->name;
+        $appmodes->threshold = $request->threshold;
+        $appmodes->rate = $request->rate;
+        $appmodes->currentAmmount = $request->currentAmmount;
+        $appmodes->save();
+
+        session()->flash('success', 'App Modes has been created !!');
+        return redirect()->route('appmodes.index');
     }
 
     /**
@@ -83,6 +102,8 @@ class AppmodeController extends Controller
      */
     public function destroy(Appmode $appmode)
     {
-        //
+        $appmode->delete();
+        session()->flash('success', 'App Modes has been Deleted !!');
+        return redirect()->route('appmodes.index');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.sb')
 @section('title')
-Doctor
+Broker
 @endsection
 
 
@@ -10,23 +10,14 @@ Doctor
 <div class="container-fluid">
     <div class="page-header">
         <div class="row align-items-end">
-            <div class="col-lg-8">
+            <div class="col">
                 <div class="page-header-title">
-                    <i class="ik ik-inbox bg-blue"></i>
+                    <a href="{{route('brokers.create')}}"><i class="ik ik-plus bg-blue"></i></a>
                     <div class="d-inline">
-                        <h5>Doctor</h5>
-                        <span>All doctor who can give treatment.</span>
+                        <h5>Broker</h5>
+                        <span>All Broker who can give ....</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <nav class="breadcrumb-container" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="{{route('doctors.create')}}" class="btn btn-success text-light"><i class="ik ik-plus"></i> Add</a>
-                        </li>
-                    </ol>
-                </nav>
             </div>
         </div>
     </div>
@@ -49,22 +40,22 @@ Doctor
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($doctors as $doctor)
+                            @foreach ($brokers as $broker)
                             <tr>
-                                <td>{{$doctor->id}}</td>
-                                <td class="text-capitalize">{{$doctor->name}}</td>
-                                <td class="text-capitalize">{{$doctor->phone}}</td>
-                                <td class="text-capitalize">{{$doctor->balance}}</td>
+                                <td>{{$broker->id}}</td>
+                                <td class="text-capitalize">{{$broker->name}}</td>
+                                <td class="text-capitalize">{{$broker->phone}}</td>
+                                <td class="text-capitalize">{{$broker->balance}}</td>
                                 <td>
                                     <div class="table-actions">
-                                        <a href="{{route('doctors.show',$doctor->id)}}"><i class="ik ik-eye"></i></a>
-                                        <a href="{{route('doctors.show',$doctor->id)}}"><i class="ik ik-edit-2"></i></a>
-                                        <a class="" href="{{ route('doctors.destroy', $doctor->id) }}"
-                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $doctor->id }}').submit();">
+                                        <a class="text-primary" href="{{route('brokers.edit',$broker->id)}}"><i class="ik ik-edit-2"></i></a>
+                                        <a class="text-success" href="{{route('brokers.show',$broker->id)}}"><i class="ik ik-eye"></i></a>
+                                        <a class="text-danger" href="{{ route('brokers.destroy', $broker->id) }}"
+                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $broker->id }}').submit();">
                                         <i class="ik ik-trash-2"></i>
                                         </a>
 
-                                        <form id="delete-form-{{ $doctor->id }}" action="{{ route('doctors.destroy', $doctor->id) }}" method="POST" style="display: none;">
+                                        <form id="delete-form-{{ $broker->id }}" action="{{ route('brokers.destroy', $broker->id) }}" method="POST" style="display: none;">
                                             @method('DELETE')
                                             @csrf
                                         </form>

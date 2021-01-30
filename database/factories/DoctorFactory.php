@@ -22,7 +22,10 @@ class DoctorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'phone' => $this->faker->phoneNumber,
+            'commission' => $this->faker->numberBetween(20,30),
+            'balance' => $this->faker->numberBetween(500,1000)
         ];
     }
 }

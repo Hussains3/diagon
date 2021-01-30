@@ -13,4 +13,4 @@
 <link rel="stylesheet" href="{{ asset('template/plugins/owl.carousel/dist/assets/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('template/plugins/owl.carousel/dist/assets/owl.theme.default.min.css') }}">
 <link rel="stylesheet" href="{{ asset('template/dist/css/theme.min.css')}}">
-<link rel="stylesheet" href="{{ asset('template/plugins/select2/dist/css/select2.min.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />

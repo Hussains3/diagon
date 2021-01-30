@@ -22,7 +22,11 @@ class BrokerFactory extends Factory
     public function definition()
     {
         return [
-            //
+
+            'name' => $this->faker->firstNameMale,
+            'phone' => $this->faker->phoneNumber,
+            'commission' => $this->faker->numberBetween(20,30),
+            'balance' => $this->faker->numberBetween(500,1000)
         ];
     }
 }

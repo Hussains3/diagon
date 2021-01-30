@@ -10,6 +10,7 @@
             t = i(".sidebar-content"),
             l = i(".wrapper"),
             o = s.querySelector(".sidebar-content");
+
         new PerfectScrollbar(o, {
             wheelSpeed: 10,
             wheelPropagation: !0,
@@ -133,35 +134,35 @@
                 i(".header-search").removeClass('open');
             }, 300);
         });
-        var ps = new PerfectScrollbar(".right-sidebar", {
-            wheelSpeed: 10,
-            wheelPropagation: true,
-            minScrollbarLength: 5
-        });
-        var ps = new PerfectScrollbar(".messages", {
-            wheelSpeed: 10,
-            wheelPropagation: true,
-            minScrollbarLength: 5
-        });
-        $(".right-sidebar-toggle").on("click",function(e) {
-            this.classList.toggle('active');
-            $('.wrapper').toggleClass('right-sidebar-expand');
-            return false;
-        });
+        // var ps = new PerfectScrollbar(".right-sidebar", {
+        //     wheelSpeed: 10,
+        //     wheelPropagation: true,
+        //     minScrollbarLength: 5
+        // });
+        // var ps = new PerfectScrollbar(".messages", {
+        //     wheelSpeed: 10,
+        //     wheelPropagation: true,
+        //     minScrollbarLength: 5
+        // });
+        // $(".right-sidebar-toggle").on("click",function(e) {
+        //     this.classList.toggle('active');
+        //     $('.wrapper').toggleClass('right-sidebar-expand');
+        //     return false;
+        // });
 
-        document.addEventListener('click', function(event) {
-            var $rightSidebar = document.getElementsByClassName('right-sidebar')[0],
-                $chatPanel = document.getElementsByClassName('chat-panel')[0];
-            var isInsideContainer = $rightSidebar.contains( event.target ) || $chatPanel.contains(event.target);
-            if( !isInsideContainer ) {
-              document.body.classList.remove('right-sidebar-expand');
-              var toggle = document.getElementsByClassName('right-sidebar-toggle');
-              for( var i = 0; i < toggle.length; i++ ) {
-                toggle[i].classList.remove('active');
-              }
-              $chatPanel.hidden = 'hidden';
-            }
-        });
+        // document.addEventListener('click', function(event) {
+        //     var $rightSidebar = document.getElementsByClassName('right-sidebar')[0],
+        //         $chatPanel = document.getElementsByClassName('chat-panel')[0];
+        //     var isInsideContainer = $rightSidebar.contains( event.target ) || $chatPanel.contains(event.target);
+        //     if( !isInsideContainer ) {
+        //       document.body.classList.remove('right-sidebar-expand');
+        //       var toggle = document.getElementsByClassName('right-sidebar-toggle');
+        //       for( var i = 0; i < toggle.length; i++ ) {
+        //         toggle[i].classList.remove('active');
+        //       }
+        //       $chatPanel.hidden = 'hidden';
+        //     }
+        // });
 
         var el = $('[data-plugin="chat-sidebar"]');
         if( !el.length ) return;

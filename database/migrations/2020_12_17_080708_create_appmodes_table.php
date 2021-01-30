@@ -17,8 +17,9 @@ class CreateAppmodesTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('threshold')->nullable();
+            $table->integer('rate')->nullable();
             $table->integer('currentAmmount')->default(0);
-            $table->boolean('status');
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class RolesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $i = 0;
         $roles = Role::all();
         return view('roles.index',compact('roles','i'));
@@ -70,7 +70,7 @@ class RolesController extends Controller
      */
     public function show($id)
     {
-        
+
         $role = Role::findByID($id);
         $permissions = Permission::all();
         $permission_groups = User::getpermissionGroups();

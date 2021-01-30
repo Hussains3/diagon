@@ -10,23 +10,14 @@ Doctor
 <div class="container-fluid">
     <div class="page-header">
         <div class="row align-items-end">
-            <div class="col-lg-8">
+            <div class="col">
                 <div class="page-header-title">
-                    <i class="ik ik-inbox bg-blue"></i>
+                    <a href="{{route('doctors.create')}}"><i class="ik ik-plus bg-blue"></i></a>
                     <div class="d-inline">
                         <h5>Doctor</h5>
                         <span>All doctor who can give treatment.</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <nav class="breadcrumb-container" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="{{route('doctors.create')}}" class="btn btn-success text-light"><i class="ik ik-plus"></i> Add</a>
-                        </li>
-                    </ol>
-                </nav>
             </div>
         </div>
     </div>
@@ -57,9 +48,9 @@ Doctor
                                 <td class="text-capitalize">{{$doctor->balance}}</td>
                                 <td>
                                     <div class="table-actions">
-                                        <a href="{{route('doctors.show',$doctor->id)}}"><i class="ik ik-eye"></i></a>
-                                        <a href="{{route('doctors.show',$doctor->id)}}"><i class="ik ik-edit-2"></i></a>
-                                        <a class="" href="{{ route('doctors.destroy', $doctor->id) }}"
+                                        <a class="text-success" href="{{route('doctors.show',$doctor->id)}}"><i class="ik ik-eye"></i></a>
+                                        <a class="text-primary" href="{{route('doctors.edit',$doctor->id)}}"><i class="ik ik-edit-2"></i></a>
+                                        <a class="text-danger" href="{{ route('doctors.destroy', $doctor->id) }}"
                                         onclick="event.preventDefault(); document.getElementById('delete-form-{{ $doctor->id }}').submit();">
                                         <i class="ik ik-trash-2"></i>
                                         </a>

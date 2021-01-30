@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Testcategory extends Model
 {
     use HasFactory;
+
+
+    public function test(){
+        return $this->hasMany(Test::class) ;
+    }
 }

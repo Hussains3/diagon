@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('profile_picture')->nullable();
             $table->string('signeture')->nullable();
-            $table->integer('balance')->nullable()->default(0);
+            $table->decimal('balance', 25, 2)->default(0.00);
             $table->string('nid')->nullable();
             $table->rememberToken();
             $table->timestamps();

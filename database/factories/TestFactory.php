@@ -21,8 +21,14 @@ class TestFactory extends Factory
      */
     public function definition()
     {
+        $category = \App\Models\Testcategory::get();
+
         return [
-            //
+            'name' => $this->faker->name,
+            'price' => $this->faker->numberBetween(1,5000),
+            'min_price' => $this->faker->numberBetween(1,2000),
+            'category' => $category->random()->id,
+            'cost' => $this->faker->numberBetween(0,200)
         ];
     }
 }

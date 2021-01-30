@@ -21,8 +21,9 @@ class GoptionFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            //
+            'appMode' => 1,
         ];
     }
 }

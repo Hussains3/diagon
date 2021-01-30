@@ -15,6 +15,8 @@ class CreateGoptionsTable extends Migration
     {
         Schema::create('goptions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('appMode')->nullable();
+            $table->foreign('appMode')->references('id')->on('appmodes')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

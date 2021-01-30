@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     use HasFactory;
+
+    public function category(){
+        return $this->belongsTo(Testcategory::class) ;
+    }
+
+    // public function sale(){
+    //     return $this->morphToMany(Sale::class,SaleItem::class);
+    // }
 }

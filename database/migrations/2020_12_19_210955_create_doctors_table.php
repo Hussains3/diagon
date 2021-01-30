@@ -21,7 +21,7 @@ class CreateDoctorsTable extends Migration
             $table->string('institution')->nullable();
             $table->string('phone');
             $table->integer('commission')->default(30);
-            $table->integer('balance')->default(0);
+            $table->decimal('balance', 25, 2)->default(0.00);
             $table->timestamps();
         });
     }

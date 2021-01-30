@@ -1,7 +1,7 @@
 @extends('layouts.sb')
 
 @section('title')
-Create User - Admin Panel
+Create Broker
 @endsection
 
 
@@ -15,8 +15,8 @@ Create User - Admin Panel
                 <div class="page-header-title">
                     <i class="ik ik-inbox bg-blue"></i>
                     <div class="d-inline">
-                        <h5>Doctor Create</h5>
-                        <span>Assigning Permission to New Doctor.</span>
+                        <h5>Broker Create</h5>
+                        <span>Assigning Permission to New Broker.</span>
                     </div>
                 </div>
             </div>
@@ -27,9 +27,9 @@ Create User - Admin Panel
                             <a href="/"><i class="ik ik-home"></i></a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{route('doctors.index')}}">Doctor</a>
+                            <a href="{{route('brokers.index')}}">Broker</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Doctor Create</li>
+                        <li class="breadcrumb-item active" aria-current="page">Broker Create</li>
                     </ol>
                 </nav>
             </div>
@@ -42,11 +42,11 @@ Create User - Admin Panel
             <div class="card">
                 <div class="card-body">
                     @include('layouts.messages')
-                    {!! Form::open(['route' => 'doctors.store', 'method' => 'post','class'=>'forms-sample','enctype'=>'multipart/form-data']) !!}
+                    {!! Form::open(['route' => 'brokers.store', 'method' => 'post','class'=>'forms-sample','enctype'=>'multipart/form-data']) !!}
                         {{csrf_field()}}
                         <div class="row">
                             <div class="form-group col-md-6 col-sm-12">
-                                {!! Form::label('name', 'Doctor Name') !!}
+                                {!! Form::label('name', 'Broker Name') !!}
                                 {!! Form::text('name', null, ['class'=>'form-control','id'=>'name','placeholder'=>'Name']) !!}
                             </div>
                             <div class="form-group col-md-6 col-sm-12">
@@ -87,5 +87,5 @@ Create User - Admin Panel
 @endsection 
 
 @section('scripts')
-     @include('doctors.script')
+     @include('brokers.script')
 @endsection

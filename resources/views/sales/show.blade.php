@@ -1,191 +1,230 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+@extends('layouts.sb')
 
-<link href="{{ asset('css/inv.css') }}" rel="stylesheet">
-
+@section('content')
+<style>
+    p{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+</style>
     <div id="invoice">
         <div class="toolbar hidden-print">
             <div class="text-right">
                 <button onclick="printDiv()" id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-{{--                <button class="btn btn-info"><i class="fa fa-file-pdf-o"></i> Export as PDF</button>--}}
             </div>
             <hr>
         </div>
         <div id="printDiv" class="invoice overflow-auto">
             <div style="min-width: 600px">
                 <header class="logoh">
-                    <div class="row">
-                        <div class="col">
-                            <img src="/sst.jpg" width="200" data-holder-rendered="true" />
+                    <div class="row d-none">
+                        <div class="col-3">
+                            <img src="https://picsum.photos/50/50" alt="" srcset="">
                         </div>
                         <div class="col company-details">
                             <h2 class="name">
-                               SS Traders
+                               Diagon Diagonostic Center
                             </h2>
-                            <div>Jashore, Bangladesh</div>
-                            <div>01700000000</div>
-                            <div><p>sstraders5935@gmail.com</p></div>
+                            <div class="d-flex">
+                                <p class="mx-2">Khulna, Bangladesh</p>
+                                <p>|</p>
+                                <p class="mx-2">01700000000</p>
+                                <p>|</p>
+                                <p class="mx-2">abc@gmail.com</p>
+                            </div>
                         </div>
                     </div>
                 </header>
-                <main>
-                    <div class="row contacts">
-                        <div class="col invoice-to">
-                            <div class="text-gray-light">INVOICE TO:</div>
-                            <h2 class="to">{{$sale->customer->name}}</h2>
-                            <div class="address">{{$sale->customer->address}}</div>
-                            <div class="email"><a href="mailto:john@example.com">{{$sale->customer->phone}}</a></div>
-                        </div>
-                        <div class="col invoice-details">
-                            <h1 class="invoice-id"># {{$sale->invoice}}</h1>
-                            <div class="date">Date of Invoice: {{$sale->date}}</div>
-                         <div class="date">Shipping Address: {{$sale->shipping_address}}</div>
+                <main class="p-2">
+                    <div class="row">
+                        <div class="col-sm-12 invoice-to">
+                            <div class="text-gray-light text-center"><h2 class="border border-primary">Total Bill/Receipt</h2></div>
 
                         </div>
                     </div>
-                    <table border="0" cellspacing="0" cellpadding="0">
-                        <thead >
-                            <tr>
-                                <th>#</th>
-                                <th class="text-left" style="width: 55%;">PRODUCT NAME</th>
-                                @if(session()->get('template') == 'Stone')
-                                <th class="text-left" style="">TRUCK NUMBER</th>
-                                @endif
-                                <th class="text-right">UNIT PRICE</th>
-                                <th class="text-right">QUANTITY</th>
-                                <th class="text-right">TOTAL PRICE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @php ($i = 0)
-                        @foreach($sale->sale_items as $sale_item)
-                            <tr>
-                                <td class="no">{{++$i}}</td>
-                                <td class="text-left">{{$sale_item->product_name}}</td>
-                                @if(session()->get('template') == 'Stone')
-                                <td class="text-left truck">{{$sale_item->track_number}}</td>
-                                @endif
-                                <td class="unit">{{$sale_item->price}}</td>
-                                <td class="qty">{{$sale_item->orderQuantity}}</td>
-                                <td class="total">{{$sale_item->totalPrice}}</td>
-                            </tr>
-                        @endforeach
+                    <div class="row">
+                        <div class="col-md-6 invoice-details">
+                            <p class="invoice-id">
+                                @php
+                                echo DNS1D::getBarcodeSVG($sale->invoice, 'C39');
+                                @endphp
+                            </p>
+                            <p class="">Name: {{$patient->name}}</p>
+                            <p class="">Consultent: {{$doctor[0]->name}}</p>
+                            <p class="date">Date of Invoice: {{$sale->created_at->format('d-m-Y')}}</p>
+                        </div>
+                        <div class="col-md-6 invoice-details">
+                            <p class="invoice-id">&nbsp;</p>
+                            <p class="to">Age: {{$patient->age}}</p>
+                            <p class="address">{{$patient->address}}</p>
+                            <p class="date">Printing Date: {{Carbon\Carbon::now()->format('d-m-y')}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="w-5">#</th>
+                                        <th class="w-15  text-left">Test NAME</th>
+                                        <th class="w-10"></th>
+                                        <th class="w-10"></th>
+                                        <th class="w-10"></th>
+                                        <th class="w-10"></th>
+                                        <th class="w-10"></th>
+                                        <th class="w-10"></th>
+                                        <th class="w-10"></th>
+                                        <th class="w-10 text-right">Total Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($sale->sale_items as $sale_item)
+                                        <tr>
+                                            <td class="">{{++$i}}</td>
+                                            <td class="text-left">{{$tests[$sale_item->test_id - 1]->name}}</td>
+                                            <td class=""></td>
+                                            <td class=""></td>
+                                            <td class=""></td>
+                                            <td class=""></td>
+                                            <td class=""></td>
+                                            <td class=""></td>
+                                            <td class=""></td>
+                                            <td class="text-right">{{$sale_item->price}}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td>SUBTOTAL</td>
+                                        <td class="text-right">{{$sale->subtotal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td>Total QTY</td>
+                                        <td class="text-right">{{$sale->total_qty}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td>TAX {{$sale->vat}} %</td>
+                                        <td class="text-right">{{($sale->subtotal / 100)*$sale->vat}}</td>
+                                    </tr>
 
+                                    <tr class="">
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td>DISCOUNT {{$sale->discount}} %</td>
+                                        <td class="text-right"><span class=" text-danger">(-{{($sale->subtotal / 100)*$sale->discount}})</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td>GRAND TOTAL</td>
+                                        <td class="text-right">{{$sale->netTotal}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td>PAID</td>
+                                        <td class="text-right">{{$sale->paid}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td>DUE</td>
+                                        <td class="text-right">{{$sale->due}}</td>
+                                    </tr>
 
+                                    <tr>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td class=""></td>
+                                        <td>Total Due</td>
+                                        <td class="text-right">{{$total_due}}</td>
+                                    </tr>
+                                </tfoot>
 
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                @if(session()->get('template') == 'Stone')
-                                <td colspan="3"></td>
-                                @else
-                                    <td colspan="2"></td>
-                                @endif
-                                <td colspan="2">SUBTOTAL</td>
-                                <td>{{$sale->subtotal}}</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"></td>
-                                <td colspan="2">Total QTY</td>
-                                <td>{{$sale->total_qty}}</td>
-                            </tr>
-                            <tr>
-                                @if(session()->get('template') == 'Stone')
-                                    <td colspan="3"></td>
-                                @else
-                                    <td colspan="2"></td>
-                                @endif
-                                <td colspan="2">TAX {{$sale->vat}} %</td>
-                                <td>{{($sale->subtotal / 100)*$sale->vat}}</td>
-                            </tr>
-                            <tr class="">
-                                @if(session()->get('template') == 'Stone')
-                                    <td colspan="3"></td>
-                                @else
-                                    <td colspan="2"></td>
-                                @endif
-                                <td colspan="2">DISCOUNT {{$sale->discount}} %</td>
-                                <td><span class="text-danger">(-{{($sale->subtotal / 100)*$sale->discount}})</span></td>
-                            </tr>
-                            <tr class="gtotal">
-                                @if(session()->get('template') == 'Stone')
-                                    <td colspan="3"></td>
-                                @else
-                                    <td colspan="2"></td>
-                                @endif
-                                <td colspan="2">GRAND TOTAL</td>
-                                <td>{{$sale->netTotal}}</td>
-                            </tr>
-                            <tr>
-                                @if(session()->get('template') == 'Stone')
-                                    <td colspan="3"></td>
-                                @else
-                                    <td colspan="2"></td>
-                                @endif
-                                <td colspan="2">PAID</td>
-                                <td>{{$sale->paid}}</td>
-                            </tr>
-                            <tr>
-                                @if(session()->get('template') == 'Stone')
-                                    <td colspan="3"></td>
-                                @else
-                                    <td colspan="2"></td>
-                                @endif
-                                <td colspan="2">DUE</td>
-                                <td>{{$sale->due}}</td>
-                            </tr>
-
-                            <tr>
-                                @if(session()->get('template') == 'Stone')
-                                    <td colspan="3"></td>
-                                @else
-                                    <td colspan="2"></td>
-                                @endif
-                                <td colspan="2">Total Due</td>
-                                <td>{{$total_due}}</td>
-                            </tr>
-
-
-                        </tfoot>
-
-                    </table>
-
+                            </table>
+                        </div>
+                    </div>
                     <div class="text-right">
-                        <p style="font-size: 24px;
-font-weight: bold;" class="mr-4">
+                        <p>
                             {{$sale->word}}
                         </p>
-
-
                     </div>
-
-                    <div class="thanks">
-
-                        Signature & Seal</div>
                     <div class="notices">
                         <div>NOTICE:</div>
                         <div class="notice">Sale Product will not be returned.</div>
                     </div>
                 </main>
-{{--                <footer>--}}
-{{--                    SoftxLtd--}}
-{{--                </footer>--}}
             </div>
-            <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
             <div></div>
         </div>
     </div>
+    @endsection
+    @section('scripts')
     <script !src="">
 
         function printDiv() {
             Popup($('#printDiv').outerHTML);
             function Popup(data)
             {
+                // $('#printDiv').print();
                 window.print();
                 return true;
             }
         }
     </script>
+    @endsection
 

@@ -11,27 +11,15 @@ Create Patient
 <div class="container-fluid">
     <div class="page-header">
         <div class="row align-items-end">
-            <div class="col-lg-8">
+            <div class="col">
                 <div class="page-header-title">
-                    <i class="ik ik-inbox bg-blue"></i>
+                    <a href="{{route('patients.index')}}"><i class="ik ik-list bg-blue"></i></a>
+
                     <div class="d-inline">
                         <h5>Patient Create</h5>
                         <span>Assigning Permission to New User.</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <nav class="breadcrumb-container" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="/"><i class="ik ik-home"></i></a>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <a href="{{route('patients.index')}}">Patient</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Patient Create</li>
-                    </ol>
-                </nav>
             </div>
         </div>
     </div>
@@ -84,7 +72,7 @@ Create Patient
         </div>
     </div>
 </div>
-@endsection 
+@endsection
 
 @section('scripts')
      @include('users.script')

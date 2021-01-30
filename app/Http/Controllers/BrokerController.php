@@ -14,7 +14,8 @@ class BrokerController extends Controller
      */
     public function index()
     {
-        return view('brokers.index');
+        $brokers = Broker::all();
+        return view('brokers.index',compact('brokers'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BrokerController extends Controller
      */
     public function create()
     {
-        //
+        return view('brokers.create');
     }
 
     /**
